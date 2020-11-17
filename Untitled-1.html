@@ -1,0 +1,30 @@
+
+        <div id="app">
+        <p>{{ title }}</p>
+        <p>{{ howAreYou() }}</p>
+        <!--p>{{ sayHello() }}</p-->
+        <a v-bind:href="link">v-bind</a>
+        <a :href="link">v-bind축약</a>
+        <h1 v-once>{{ title }}</h1>
+        <p>{{ sayHello() }}</p>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    title: 'VueJS!'
+                    ,link: 'https://www.w3schools.com/'
+                },
+                methods: {
+                    howAreYou: function () {
+                        return "기분이 어때?"
+                    }
+                    ,sayHello: function () {
+                        this.title = '그냥 괜찮아';
+                        return this.title;
+                    }
+                }
+            })
+        </script>
