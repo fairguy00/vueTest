@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue test</title>
+    <script src="./vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!--div v-if="msg">
+            {{msg}} ~~
+        </div-->
+        <ul>
+            <li v-for="item in items"
+                v-bind:key="id">
+                <!-- v-for 문은 v-bind:key 로 고유한키 지정해야함 -->
+                {{item.msg}}
+            </li>
+        </ul>
+
+    <div id='app-2'>
+
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',//엘리먼트
+            data: {
+                //show : true,
+                //msg : 'hello world!' //스크립트에서 빈문자열은 false임 ㅋ
+                items:[
+                    {
+                        id:'1',
+                        msg:'이왕'
+                    },
+                    {
+                        id: '2',
+                        msg: '한거'
+                    },
+                    {
+                        id: '3',
+                        msg: '가즈아'
+                    }
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>

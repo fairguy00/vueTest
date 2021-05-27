@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue v-cnce </title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>    
+<body>
+    <style>
+        .normal{
+            color: blue;
+        }
+        .active{
+            color: red;
+        }
+    </style>
+    <div id="app">
+        <!-- 반응성 한번 -->
+        <!-- <div v-once>
+                {{msg}}
+            </div> -->
+        <!-- 원시html 메시지안의 html -->
+        <!-- <div v-html="msg">
+            </div>
+            <div >
+                {{msg}}
+            </div> -->
+        <!-- 자바스크립트 표현식만 사용가능 -->
+        <!-- <div>
+                {{number +3}}
+                {{new Date()}}
+                {{Math.round(1, 7)}}
+            </div> -->
+        <!-- html 속성에 바인드 -->
+        <!-- <div v-bind:class="className"> 아래코드와 같다-->
+        <!-- <div :class="className"> -->
+        <!-- <div :class="className" 
+            v-on:click="changeClassName"> v-on 은 @으로 생략가능-->
+        <div :class="className" @click="changeClassName">
+            {{msg}}
+        </div>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                msg: 'vue HI! <br/>dd',
+                number: 2,
+                className: 'normal'
+            },
+            methods:{
+                changeClassName(){
+                    this.className = 'active'
+                }
+            }
+        })
+
+    </script>
+
+</body>
+</html>

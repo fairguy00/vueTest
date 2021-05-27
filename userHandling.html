@@ -1,0 +1,44 @@
+<div id="app">
+    <div class="box" 
+        v-bind:class="{active:toggle}"
+        v-on:click="toggleElement">
+        {{msg}}
+    </div>
+    <button v-on:click="toggleElement">toggle</button>
+    <input type="text" v-model="msg">
+</div>
+<style>
+    .box {
+        width: 150px;
+        height: 150px;
+        background: royalblue;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 1s;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box.active {
+        width: 400px;
+        background: tomato;
+    }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+    const vm = new Vue({
+        el: "#app",
+        data: {
+            toggle: false,
+            msg:''
+        },
+        methods: {
+            //이걸 아래와같이도 쓴다 toggleElement: function(){}
+            toggleElement() {
+                this.toggle = !this.toggle
+            }
+        }
+    })
+</script>

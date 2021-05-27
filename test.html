@@ -1,0 +1,14 @@
+<div id="app">
+    {{ count * 3 > 10 ? "10보다 큽니다." : "10보다 작거나 같습니다."}}
+    <button v-on:click="count ++">클릭</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+    new Vue({ 
+        el: "#app", 
+        data: {
+            count: 0 // 클릭 횟수를 저장할 변수
+        }
+    })
+</script>

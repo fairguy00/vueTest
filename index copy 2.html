@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue test-인스턴스 훅</title>
+</head>
+    <div id="app">
+        <div ref='msg'>
+            {{msg}}
+        </div>
+        <div ref="div"></div><!-- 요소 참조 -->
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    const vm = new Vue({
+        el: "#app",
+        data: {
+            msg:'HI!'
+        },
+        beforeCreate(){//뷰인스턴스 생성 직전
+            console.log('beforeCreate!', this.msg)
+        },
+        created(){
+           console.log('created!', this.msg)
+        },
+        beforeMount(){
+            console.log('beforeMount!',this.$refs.div)//뷰인스턴스 연결안된상태
+        },
+        mounted(){
+            console.log('mounted!', this.$refs.div)//뷰인스턴스 연결된상태
+        },
+        beforeUpdate(){
+            console.log('beforeUpdate ',this.$refs.msg.innerText)
+        },
+        updated() {
+            console.log('updated ', this.$refs.msg.innerText)
+        },
+        beforeDestroy(){
+            console.log('beforeDestroy!')
+        },
+        destroyed(){
+            console.log('destoryed!')
+        }
+    })
+
+</script>
+<body>
+
+
+</body>
+</html>

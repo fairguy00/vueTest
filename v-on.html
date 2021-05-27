@@ -1,0 +1,52 @@
+<div id="app">
+    <p>v-on - 이벤트 리스너</p>
+
+    <div>
+        {{ number }}
+        <!-- 주사위 수 -->
+        <button v-on:click="rollDice">주사위 던지기</button>
+        <button v-on:click="addCount(2)">2를 더해줘</button>
+        <button v-on:dblclick="doubleClick()">더블클릭</button>
+    </div>
+
+    <p>{{ count }}</p>
+    <div v-on:mousemove="addCount()">
+        마우스를 올려봐!
+        <span v-on:mousemove.stop="">그만!</span>
+        여기서부터 다시 시작!
+    </div>
+    
+    <input v-on:keyup.enter="login" placeholder="아이디를 입력하세요.">
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+    new Vue({
+            el: "#app",
+            data: {
+                number: 0 // 주사위의 숫자를 저장할 변수
+                ,count: 0
+            },
+            methods: {
+                // 주사위를 던졌을 때 실행되는 함수
+                rollDice: function () {
+                    // 임의의 변수 N을 설정하여 1-6사이의 임의의 숫자를 반환
+                    let N = Math.floor(Math.random() * (6)) + 1;
+                    // 인스턴스 내부의 값을 불러올 때는 this를 사용
+                    this.number = N;
+                },
+                //number1 인자를 받는 함수
+                addCount(number1) {
+                    this.number = this.number + number1
+                },
+                doubleClick() {
+                    console.log('더블클릭')
+                },
+                addCount() {
+                    this.count++
+                },
+                login() {
+                    alert('로그인 되었습니다.')
+                }
+            }
+        })
+</script>
